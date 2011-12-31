@@ -1,0 +1,23 @@
+{
+  "author": "Mikkel Hoegh <mikkel@hoegh.org> (http://mikkel.hoegh.org/)",
+  "name": "monolith",
+  "description": "Node.js module to aggregate CSS, JavaScript and images for inlining them into a single HTML document. Helpful for high-performance HTML apps.",
+  "version": "0.0.1",
+  "homepage": "https://github.com/mikl/monolith",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/mikl/monolith.git"
+  },
+  "main": "./monolith",
+  "engines": {
+    "node" : "0.4 || 0.6"
+  },
+  "dependencies": {},
+  "devDependencies": {},
+  "licenses": [
+    {
+      "type": "Apache 2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0"
+    }
+  ]
+}
