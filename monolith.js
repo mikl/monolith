@@ -18,7 +18,7 @@ var Monolith = function (options) {
   self.construct = function () {
     options = options || {};
 
-    self.minify = options.minify || true;
+    self.minify = options.hasOwnProperty('minify') ? options.minify : true;
 
     self.css = [];
     self.script = [];
