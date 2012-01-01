@@ -1,5 +1,5 @@
 /*!
- * Copyright 2011 Mikkel Hoegh
+ * Copyright 2012 Mikkel Hoegh
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -9,12 +9,17 @@
  */
 "use strict";
 
-var fs = require('fs');
+var fs = require('fs'),
+    uglify = require('uglify-js');
 
 var Monolith = function (options) {
   var self = this;
 
   self.construct = function () {
+    options = options || {};
+
+    self.minify = options.minify || true;
+
     self.css = [];
     self.script = [];
   };
@@ -24,7 +29,16 @@ var Monolith = function (options) {
   };
 
   self.addScriptFile = function (filepath) {
-    self.script.push(fs.readFileSync(filepath, 'utf-8'));
+    var source = fs.readFileSync(filepath, 'utf-8');
+
+    if (self.minify) {
+      self.script.push(uglify(source, {
+        gen_options: { inline_script: true }
+      }));
+    }
+    else {
+      self.script.push(source);
+    }
   };
 
   self.getCSS = function () {
