@@ -15,7 +15,9 @@
   "dependencies": {
     "uglify-js": "~1.2.3"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "vows": "~0.6.1"
+  },
   "scripts": {},
   "bugs": {
     "url": "https://github.com/mikl/monolith/issues"
