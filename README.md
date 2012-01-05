@@ -27,7 +27,7 @@ greatly depending on what sort of template rendering you use):
     };
 
 Then, in the template, add the CSS and styles to the page (this examply
-uses Underscore templates, the syntax should be easy to figure out):
+uses [Underscore templates][utmpl], the syntax should be easy to figure out):
 
     <head>
       <meta charset="utf-8">
@@ -44,4 +44,6 @@ uses Underscore templates, the syntax should be easy to figure out):
     </head>
 
 And you're done. 
+
+[utmpl]: http://documentcloud.github.com/underscore/#template
 
