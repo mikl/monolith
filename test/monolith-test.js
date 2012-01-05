@@ -55,8 +55,8 @@ vows.describe('monolith').addBatch({
     },
 
     "should have been provided with around 8KB CSS": function (topic) {
-      assert(topic.fileContents.length > 7000);
-      assert(topic.fileContents.length < 10000);
+      assert.isTrue(topic.fileContents.length > 7000);
+      assert.isTrue(topic.fileContents.length < 10000);
     },
 
     "should return a single stylesheet when getCSS() is invoked": function (topic) {
