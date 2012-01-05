@@ -83,8 +83,8 @@ vows.describe('monolith').addBatch({
     },
 
     "should have been provided with around 1KB JavaScript": function (topic) {
-      assert(topic.fileContents.length > 1000);
-      assert(topic.fileContents.length < 2000);
+      assert.isTrue(topic.fileContents.length > 1000);
+      assert.isTrue(topic.fileContents.length < 2000);
     },
 
     "should return a single script when getScript() is invoked": function (topic) {
@@ -96,8 +96,8 @@ vows.describe('monolith').addBatch({
     "should return a much smaller script after minification": function (topic) {
       var script = topic.instance.getScript();
 
-      assert(script[0].length > 100);
-      assert(script[0].length < 500);
+      assert.isTrue(script[0].length > 100);
+      assert.isTrue(script[0].length < 500);
     }
   }
 }).export(module);
