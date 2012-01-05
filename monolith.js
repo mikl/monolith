@@ -42,11 +42,11 @@ var Monolith = function (options) {
   };
 
   self.getCSS = function () {
-    return self.css.join("\n");
+    return self.css;
   };
 
   self.getScript = function () {
-    return self.script.join("\n");
+    return self.script;
   };
 
   return self.construct();
