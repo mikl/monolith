@@ -34,6 +34,16 @@ vows.describe('monolith').addBatch({
     "should start with empty arrays for css and script files": function (instance) {
       assert.isEmpty(instance.getCSS());
       assert.isEmpty(instance.getScript());
+    },
+
+    "adds CSS to its internal store when called": function (instance) {
+      instance.addCSS('#monolith { align: centaur; }');
+      assert.equal(instance.getCSS().length, 1);
+    },
+
+    "adds JavaScript to its internal store when called": function (instance) {
+      instance.addScript('"use strict";');
+      assert.equal(instance.getScript().length, 1);
     }
   },
 
