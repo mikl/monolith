@@ -24,13 +24,16 @@ var Monolith = function (options) {
     self.script = [];
   };
 
-  self.addCSSFile = function (filepath) {
-    self.css.push(fs.readFileSync(filepath, 'utf-8'));
+  // Add CSS to the CSS array.
+  self.addCSS = function (source) {
+    self.css.push(source);
   };
 
-  self.addScriptFile = function (filepath) {
-    var source = fs.readFileSync(filepath, 'utf-8');
+  self.addCSSFile = function (filepath) {
+    self.addCSS(fs.readFileSync(filepath, 'utf-8'));
+  };
 
+  self.addScript = function (source) {
     if (self.minify) {
       self.script.push(uglify(source, {
         gen_options: { inline_script: true }
@@ -39,6 +42,10 @@ var Monolith = function (options) {
     else {
       self.script.push(source);
     }
+  };
+
+  self.addScriptFile = function (filepath) {
+    self.addScript(fs.readFileSync(filepath, 'utf-8'));
   };
 
   self.getCSS = function () {
