@@ -9,7 +9,8 @@
  */
 "use strict";
 
-var fs = require('fs'),
+var csso = require('csso'),
+    fs = require('fs'),
     uglify = require('uglify-js');
 
 var Monolith = function (options) {
@@ -26,7 +27,12 @@ var Monolith = function (options) {
 
   // Add CSS to the CSS array.
   self.addCSS = function (source) {
-    css.push(source);
+    if (self.minify) {
+      css.push(csso.justDoIt(source));
+    }
+    else {
+      css.push(source);
+    }
   };
 
   self.addCSSFile = function (filepath) {

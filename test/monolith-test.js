@@ -63,6 +63,13 @@ vows.describe('monolith').addBatch({
       // assert.length is currently broken, so use assert.equal in its place.
       assert.equal(topic.instance.getCSS().length, 1);
 
+    },
+
+    "should return a much smaller stylesheet after minification": function (topic) {
+      var css = topic.instance.getCSS();
+
+      assert.isTrue(css[0].length > 1000);
+      assert.isTrue(css[0].length < 4000);
     }
   },
 
