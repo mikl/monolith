@@ -26,12 +26,12 @@ vows.describe('monolith').addBatch({
       assert.isFunction(instance.getScript);
     },
 
-    "shoud provide arrays of css and script files": function (instance) {
+    "should provide arrays of css and script files": function (instance) {
       assert.isArray(instance.getCSS());
       assert.isArray(instance.getScript());
     },
 
-    "shoud start with empty arrays for css and script files": function (instance) {
+    "should start with empty arrays for css and script files": function (instance) {
       assert.isEmpty(instance.getCSS());
       assert.isEmpty(instance.getScript());
     }
