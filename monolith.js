@@ -13,20 +13,20 @@ var fs = require('fs'),
     uglify = require('uglify-js');
 
 var Monolith = function (options) {
-  var self = this;
+  var self = this,
+      css = [],
+      script = [];
 
   self.construct = function () {
     options = options || {};
 
     self.minify = options.hasOwnProperty('minify') ? options.minify : true;
 
-    self.css = [];
-    self.script = [];
   };
 
   // Add CSS to the CSS array.
   self.addCSS = function (source) {
-    self.css.push(source);
+    css.push(source);
   };
 
   self.addCSSFile = function (filepath) {
@@ -35,12 +35,12 @@ var Monolith = function (options) {
 
   self.addScript = function (source) {
     if (self.minify) {
-      self.script.push(uglify(source, {
+      script.push(uglify(source, {
         gen_options: { inline_script: true }
       }));
     }
     else {
-      self.script.push(source);
+      script.push(source);
     }
   };
 
@@ -49,11 +49,11 @@ var Monolith = function (options) {
   };
 
   self.getCSS = function () {
-    return self.css;
+    return css;
   };
 
   self.getScript = function () {
-    return self.script;
+    return script;
   };
 
   return self.construct();
